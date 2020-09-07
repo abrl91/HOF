@@ -5,11 +5,21 @@ const myForm = `
     <input type="text">
 `
 
-createFormBtn.addEventListener('click', FormGenerator(
-    '123',
+const exampleForm = FormGenerator(
+    'example1',
     myForm,
     'success :)',
     'failed :(',
-    window.location.href = "http://www.facebook.com",
-    window.location.href = "http://www.w3schools.com"
-).showForm);
+    () => {
+        setTimeout(() => {
+            window.location.href = "http://www.facebook.com"
+        })
+    },
+    () => {
+        setTimeout(() => {
+            window.location.href = "http://www.w3schools.com"
+        })
+    }
+    )
+
+createFormBtn.addEventListener('click', exampleForm.createForm);
